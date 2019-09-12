@@ -6,7 +6,17 @@ typedef struct node {
 } node;
 
 int ll_has_cycle(node *head) {
-	/* your code here */
+    node *slow = head;
+    node *fast = head;
+    while (fast != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if (slow == fast) {
+            return 1;
+        }
+    }
+    return 0;
 }
 
 void test_ll_has_cycle(void) {
